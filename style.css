@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#header{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 10vh;
+    background-color: hsla(208, 78%, 49%, 0.906);
+}
+#navbar ul{
+    list-style-type: none;
+    text-decoration: none;
+    
+}
+#navbar a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    
+}
+#navbar li{
+    
+    height: 10vh;
+    align-content: center;
+    float: left; 
+    padding: 0px 10px;
+    cursor: pointer;
+    
+}
+#navbar li:hover{
+    background-color: hsl(180, 100%, 40%);
+}
+#navbar{
+    height: 10vh;
+    background-color: hsl(180, 100%, 50%);
+    display: flex;
+    justify-content:right;
+    align-items:center;
+    align-content: center;
+}
+#searchbar{
+    margin: 10px;
+    padding: 0px;
+}
+#login_signup{
+    margin-right: 10px;
+     padding-left: 10px;
+}
+.dropdownmenu{
+    display: none;
+    width: 10px;
+    position: absolute;
+}
+.dropdown{
+    color: black;
+    display: block;
+    width: 100px;
+    background-color: hsl(0, 0%, 30%);
+    cursor: pointer;
+}
+  

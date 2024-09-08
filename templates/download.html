@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Playlist/Single to MP3/MP4 Converter</title>
+</head>
+<body>
+    <h1>YouTube Playlist/Single to MP3/MP4 Converter</h1>
+    <p>Enter a YouTube video or playlist URL:</p>
+    <form id="convertForm">
+        <label for="youtube_url">YouTube Video/Playlist URL:</label>
+        <input type="text" id="youtube_url" name="youtube_url" required>
+
+        <label for="link_type">Select Link Type:</label>
+        <select id="link_type" name="link_type">
+            <option value="single">Single Video</option>
+            <option value="playlist">Playlist</option>
+        </select>
+
+        <label for="format">Select Format:</label>
+        <select id="format" name="format">
+            <option value="mp3">MP3 (Audio)</option>
+            <option value="mp4">MP4 (Video)</option>
+        </select>
+
+        <label for="bitrate">Select Bitrate/Resolution:</label>
+        <select id="bitrate" name="bitrate">
+            <option value="320">320 kbps (MP3)</option>
+            <option value="160">160 kbps (MP3)</option>
+            <option value="80">80 kbps (MP3)</option>
+            <option value="1080p">1080p (MP4)</option>
+            <option value="720p">720p (MP4)</option>
+            <option value="480p">480p (MP4)</option>
+        </select>
+
+        <button type="submit">Convert and Download</button>
+    </form>
+
+    <div id="downloadLink" style="display:none;">
+        <a id="mp3Download" href="#">Download</a>
+    </div>
+
+    <script>
+        document.getElementById('convertForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const youtube_url = document.getElementById('youtube_url').value;
+            const format = document.getElementById('format').value;
+            const bitrate = document.getElementById('bitrate').value;
+            const link_type = document.getElementById('link_type').value;  // New input for link type
+
+            fetch('https://my-website-5pdp.onrender.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ youtube_url, format, bitrate, link_type }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.download_url) {
+                    document.getElementById('mp3Download').href = 'https://my-website-5pdp.onrender.com' + data.download_url;
+                    document.getElementById('downloadLink').style.display = 'block';
+                } else {
+                    console.error('Error:', data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
