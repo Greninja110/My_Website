@@ -48,7 +48,7 @@
             const bitrate = document.getElementById('bitrate').value;
             const link_type = document.getElementById('link_type').value;  // New input for link type
 
-            fetch('https://my-website-5pdp.onrender.com', {
+            fetch('https://my-website-1-npp6.onrender.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -58,7 +58,7 @@
             .then(response => response.json())
             .then(data => {
                 if (data.download_url) {
-                    document.getElementById('mp3Download').href = 'https://my-website-5pdp.onrender.com' + data.download_url;
+                    document.getElementById('mp3Download').href = 'https://my-website-1-npp6.onrender.com' + data.download_url;
                     document.getElementById('downloadLink').style.display = 'block';
                 } else {
                     console.error('Error:', data.error);
