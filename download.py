@@ -17,7 +17,7 @@ def index():
     return render_template('index.html')
 
 # Route for download page
-@app.route('/template')
+@app.route('/templates')
 def download_page():
     return render_template('download.html')
 
