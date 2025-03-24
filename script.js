@@ -1,7 +1,7 @@
 // Wait for the DOM to load completely
 document.addEventListener('DOMContentLoaded', function() {
     // Set your target launch date (adjust as needed)
-    const launchDate = new Date("March 25, 2025 00:00:00").getTime();
+    const launchDate = new Date("April 1, 2025 00:00:00").getTime();
     const countdownElement = document.getElementById("countdown");
   
     function updateCountdown() {
